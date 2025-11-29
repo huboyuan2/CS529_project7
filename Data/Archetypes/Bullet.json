@@ -1,0 +1,28 @@
+{
+  "Entity": {
+    "Name": "Bullet",
+    "Components": {
+      "Transform": {
+        "Translation": [ 0.0, 0.0 ],
+        "Rotation": 0.0,
+        "Scale": [ 10.0, 10.0 ]
+      },
+      "Sprite": {
+        "Mesh": "MeshBullet"
+      },
+      "Physics": {
+      },
+      "BehaviorBullet": {
+        "StateCurr": -1,
+        "StateNext": 0,
+        "Timer": 3.0
+      },
+      "BehaviorTeleporter": {
+        "StateNext": 0
+      },
+      "ColliderCircle": {
+        "Radius": 5.0
+      }
+    }
+  }
+}

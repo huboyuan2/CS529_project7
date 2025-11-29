@@ -1,0 +1,27 @@
+{
+  "Entity": {
+    "Name": "Monkey",
+    "Components": {
+      "Transform": {
+        "Translation": [ 0.0, -150.0 ],
+        "Rotation": 0.0,
+        "Scale": [ 64.0, 64.0 ]
+      },
+      "Sprite": {
+        "FrameIndex": 0,
+        "Alpha": 1.0
+      },
+      "Physics": {
+      },
+      "Animation": {
+        "FrameIndex": 0,
+        "FrameCount": 0,
+        "FrameDelay": 0.0,
+        "FrameDuration": 0.0,
+        "IsRunning": false,
+        "IsLooping": false,
+        "IsDone": false
+      }
+    }
+  }
+}

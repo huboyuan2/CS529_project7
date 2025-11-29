@@ -1,0 +1,15 @@
+{
+  "Entity": {
+    "Name": "Level1Map",
+    "Components": {
+      "Transform": {
+        "Translation": [-450.0, -300.0],
+        "Scale": [64.0, 64.0],
+        "Rotation": 0.0
+      },
+      "TileMap": {
+        "TileMapData": "Level1MapData"
+      }
+    }
+  }
+}

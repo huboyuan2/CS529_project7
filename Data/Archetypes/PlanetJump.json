@@ -1,0 +1,20 @@
+{
+  "Entity": {
+    "Name": "Planet",
+    "Components": {
+      "Transform": {
+        "Translation": [ 0.0, -150.0 ],
+        "Rotation": 0.0,
+        "Scale": [ 100.0, 100.0 ]
+      },
+      "Sprite": {
+        "Alpha": 1.0
+      },
+      "Physics": {
+        "Acceleration": [ 0.0, 0.0 ],
+        "Velocity": [ 0.0, 0.0 ],
+        "YouCanAddCommentsByCreatingFakeKeys": 0
+      }
+    }
+  }
+}

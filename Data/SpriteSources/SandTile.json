@@ -1,0 +1,8 @@
+{
+  "SpriteSource": {
+    "Name": "SandTile",
+    "NumCols": 1,
+    "NumRows": 1,
+    "Texture": "tile_1.png"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "Entity": {
+    "Name": "Asteroid",
+    "Components": {
+      "Transform": {
+        "Scale": [ 40.0, 40.0 ]
+      },
+      "Sprite": {
+        "Mesh": "MeshAsteroid"
+      },
+      "Physics": {
+      },
+      "BehaviorAsteroid": {
+        "StateNext": 0
+      },
+      "BehaviorTeleporter": {
+        "StateNext": 0
+      },
+      "ColliderCircle": {
+        "Radius":  20.0
+      }
+    }
+  }
+}

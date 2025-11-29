@@ -1,0 +1,8 @@
+{
+  "SpriteSource": {
+    "Name": "GrassTile",
+    "NumCols": 1,
+    "NumRows": 1,
+    "Texture": "tile_0.png"
+  }
+}

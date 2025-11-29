@@ -1,0 +1,9 @@
+{
+  "Mesh": {
+    "Name": "MeshQuad",
+    "Quad": {
+      "NumRows": 1,
+      "NumCols": 1
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "Entity": {
+    "Name": "OmegaHighScore",
+    "Components": {
+      "Transform": {
+        "Translation": [ -175, 70 ],
+        "Scale": [ 20, 30 ]
+      },
+      "Sprite": {
+        "Mesh": "Mesh16x8",
+        "SpriteSource": "SpriteSourceWhiteFont"
+      },
+      "BehaviorHudText": {
+        "ScoreSystemId": 1,
+        "LabelString": "High Score: "
+      }
+    }
+  }
+}

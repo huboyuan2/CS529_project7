@@ -1,0 +1,8 @@
+{
+  "Mesh": {
+    "Name": "Mesh16x8",
+    "Quad": true,
+    "NumCols": 16,
+    "NumRows": 8
+  }
+}

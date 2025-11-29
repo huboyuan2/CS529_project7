@@ -1,0 +1,8 @@
+{
+  "SpriteSource": {
+    "Name": "WaterTile",
+    "NumCols": 1,
+    "NumRows": 1,
+    "Texture": "tile_4.png"
+  }
+}

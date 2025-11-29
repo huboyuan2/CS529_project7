@@ -1,0 +1,19 @@
+{
+  "Entity": {
+    "Name": "AsteroidsScore",
+    "Components": {
+      "Transform": {
+        "Translation": [ -325, 280 ],
+        "Scale": [ 20, 30 ]
+      },
+      "Sprite": {
+        "Mesh": "Mesh16x8",
+        "SpriteSource": "SpriteSourceWhiteFont"
+      },
+      "BehaviorHudText": {
+        "ScoreSystemId": 0,
+        "LabelString": "Score: "
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "SpriteSource": {
+    "Name": "SpriteSourceWhiteFont",
+    "NumCols": 16,
+    "NumRows": 8,
+    "Texture": "Roboto_Mono_white.png"
+  }
+}

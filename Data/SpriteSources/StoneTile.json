@@ -1,0 +1,8 @@
+{
+  "SpriteSource": {
+    "Name": "StoneTile",
+    "NumCols": 1,
+    "NumRows": 1,
+    "Texture": "tile_2.png"
+  }
+}

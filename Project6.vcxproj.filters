@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{401b2e62-090e-4cc8-8718-1a7995a11b6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{cb9cafca-4c24-48f4-ad83-3680084bc930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Framework">
+      <UniqueIdentifier>{dde7b5f1-c21c-49e1-8dfd-b636d3101d57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems">
+      <UniqueIdentifier>{9efc4d09-9341-481e-94f7-6d3be57388d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Platform">
+      <UniqueIdentifier>{4d153638-76db-4458-b26d-b8b9c01b5fee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Templates">
+      <UniqueIdentifier>{7d527370-494e-495d-9c61-937a51f5ce24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Logging">
+      <UniqueIdentifier>{8668aa4f-5de6-44ef-ad76-a27dce480aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Scene">
+      <UniqueIdentifier>{0a65c701-2b0b-4ec7-9337-2f6524ab06a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities">
+      <UniqueIdentifier>{05c09f78-7d5e-420b-baef-95c8d0b4b3b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities\Components">
+      <UniqueIdentifier>{1c10d980-d8ba-4f45-8006-feee114e296f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities\Components\Transform">
+      <UniqueIdentifier>{73c0a94b-0c7e-4608-9c57-f6fb4c2d8dff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities\Components\Physics">
+      <UniqueIdentifier>{2afe578f-781e-447a-b339-3dfe8f06a160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities\Components\Sprite">
+      <UniqueIdentifier>{502203a1-a7be-42a6-9c2e-14bf6c1c092b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Scenes">
+      <UniqueIdentifier>{d89abf8a-bddc-4caf-b189-7daadabe711f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Libraries">
+      <UniqueIdentifier>{dbb46601-5a73-4802-a866-a89f1a8b9eb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JSON Files">
+      <UniqueIdentifier>{05095ce0-931a-4b1e-8040-fbd83314b0f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JSON Files\Data">
+      <UniqueIdentifier>{9633a1c4-759c-484b-acc3-5d3102aa6e33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JSON Files\Data\Archetypes">
+      <UniqueIdentifier>{c2f1ce65-9d68-45e5-ae9a-69fb85dd8f0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities\Components\Animation">
+      <UniqueIdentifier>{a59ed443-7428-4df0-ab6c-e881cc5afdca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Systems">
+      <UniqueIdentifier>{2631cfaf-cfbf-4750-9c93-bd82a0895152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Systems\Cheat">
+      <UniqueIdentifier>{0168e00d-6449-40b9-9430-b8c1d9ff6a0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JSON Files\Data\Meshes">
+      <UniqueIdentifier>{09115e7c-d453-4555-9ecb-2547ef4bc79f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Behaviors">
+      <UniqueIdentifier>{41a920bb-070b-4499-9d0b-1f06053ffa8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities\Components\Behavior">
+      <UniqueIdentifier>{4d24cbf4-963b-4174-8d05-d9a64c4beb53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities\Components\Collider">
+      <UniqueIdentifier>{1eca553a-a4ae-44fa-9fe5-8865b048d275}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Systems\Score">
+      <UniqueIdentifier>{ed4ba75c-7313-4fc5-b5ca-ef9f06bf9d98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JSON Files\Data\SpriteSources">
+      <UniqueIdentifier>{b84c50a1-a39d-4aa7-bbd9-b693d21b47da}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Precompiled.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\System.cpp">
+      <Filter>Source Files\Engine\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PlatformSystem.cpp">
+      <Filter>Source Files\Engine\Systems\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ObjectFactory.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Transform.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Component.cpp">
+      <Filter>Source Files\Engine\Entities\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Container.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LoggingSystem.cpp">
+      <Filter>Source Files\Engine\Systems\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Templates\TemplateSystem.cpp">
+      <Filter>Source Files\Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Templates\TemplateComponent.cpp">
+      <Filter>Source Files\Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneSystem.cpp">
+      <Filter>Source Files\Engine\Systems\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Templates\TemplateObject.cpp">
+      <Filter>Source Files\Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source Files\Engine\Systems\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Entity.cpp">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Templates\TemplateScene.cpp">
+      <Filter>Source Files\Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StubScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SimpleTextFileChannel.cpp">
+      <Filter>Source Files\Engine\Systems\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Level1Scene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Stream.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Level2Scene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SandboxScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vector2D.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EntityFactory.cpp">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Sprite.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SpriteSource.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Templates\TemplateCpp.cpp">
+      <Filter>Source Files\Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Animation.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CheatSystem.cpp">
+      <Filter>Source Files\Game\Systems\Cheat</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Matrix2D.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EntityContainer.cpp">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\AsteroidsScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MeshLibrary.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mesh.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BehaviorSpaceship.cpp">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Behavior.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Templates\BehaviorTemplate.cpp">
+      <Filter>Source Files\Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BehaviorBullet.cpp">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BehaviorTeleporter.cpp">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Random.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SpriteSourceLibrary.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Color.cpp">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BehaviorAsteroid.cpp">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collider.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ColliderCircle.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ScoreSystem.cpp">
+      <Filter>Source Files\Game\Systems\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BehaviorHudText.cpp">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\OmegaScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ColliderLine.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TileMap.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TileMapData.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TileSet.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TileSetLibrary.cpp">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Precompiled.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\targetver.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\System.h">
+      <Filter>Source Files\Engine\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PlatformSystem.h">
+      <Filter>Source Files\Engine\Systems\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ObjectFactory.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Transform.h">
+      <Filter>Source Files\Engine\Entities\Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Component.h">
+      <Filter>Source Files\Engine\Entities\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Container.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LoggingSystem.h">
+      <Filter>Source Files\Engine\Systems\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Templates\TemplateComponent.h">
+      <Filter>Source Files\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Templates\TemplateSystem.h">
+      <Filter>Source Files\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneSystem.h">
+      <Filter>Source Files\Engine\Systems\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Templates\TemplateObject.h">
+      <Filter>Source Files\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Source Files\Engine\Systems\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entity.h">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoScene.h">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Templates\TemplateScene.h">
+      <Filter>Source Files\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StubScene.h">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SimpleTextFileChannel.h">
+      <Filter>Source Files\Engine\Systems\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Level1Scene.h">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Stream.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Level2Scene.h">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SandboxScene.h">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\DGL\inc\DGL.h">
+      <Filter>Source Files\Engine\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\nlohmann\json.hpp">
+      <Filter>Source Files\Engine\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\nlohmann\json_fwd.hpp">
+      <Filter>Source Files\Engine\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vector2D.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityFactory.h">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Sprite.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Physics.h">
+      <Filter>Source Files\Engine\Entities\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SpriteSource.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Source Files\Engine\Entities\Components\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CheatSystem.h">
+      <Filter>Source Files\Game\Systems\Cheat</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Matrix2D.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityContainer.h">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AsteroidsScene.h">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MeshLibrary.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mesh.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BehaviorSpaceship.h">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Behavior.h">
+      <Filter>Source Files\Engine\Entities\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Templates\BehaviorTemplate.h">
+      <Filter>Source Files\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BehaviorBullet.h">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BehaviorTeleporter.h">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Random.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SpriteSourceLibrary.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Color.h">
+      <Filter>Source Files\Engine\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BehaviorAsteroid.h">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Collider.h">
+      <Filter>Source Files\Engine\Entities\Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ColliderCircle.h">
+      <Filter>Source Files\Engine\Entities\Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ScoreSystem.h">
+      <Filter>Source Files\Game\Systems\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BehaviorHudText.h">
+      <Filter>Source Files\Game\Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ColliderLine.h">
+      <Filter>Source Files\Engine\Entities\Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CollisionRecord.h">
+      <Filter>Source Files\Engine\Entities\Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\OmegaScene.h">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TileMap.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TileMapData.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TileSet.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TileSetLibrary.h">
+      <Filter>Source Files\Engine\Entities\Components\Sprite</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Templates\TemplateComponent.vstemplate">
+      <Filter>Source Files\Templates</Filter>
+    </None>
+    <None Include="..\Templates\TemplateSystem.vstemplate">
+      <Filter>Source Files\Templates</Filter>
+    </None>
+    <None Include="..\Templates\TemplateObject.vstemplate">
+      <Filter>Source Files\Templates</Filter>
+    </None>
+    <None Include="..\Templates\TemplateScene.vstemplate">
+      <Filter>Source Files\Templates</Filter>
+    </None>
+    <None Include="Data\Level1.json">
+      <Filter>JSON Files\Data</Filter>
+    </None>
+    <None Include="Data\Level2.json">
+      <Filter>JSON Files\Data</Filter>
+    </None>
+    <None Include="Data\VectorTests.json">
+      <Filter>JSON Files\Data</Filter>
+    </None>
+    <None Include="Data\Archetypes\PlanetJump.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\SpaceshipHoming.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="..\Templates\TemplateCpp.vstemplate">
+      <Filter>Source Files\Templates</Filter>
+    </None>
+    <None Include="Data\Archetypes\Monkey.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\MonkeyLivesText.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\PlanetBounce.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\Bullet.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\Spaceship.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Meshes\MeshBullet.json">
+      <Filter>JSON Files\Data\Meshes</Filter>
+    </None>
+    <None Include="Data\Meshes\MeshSpaceship.json">
+      <Filter>JSON Files\Data\Meshes</Filter>
+    </None>
+    <None Include="..\Templates\BehaviorTemplate.vstemplate">
+      <Filter>Source Files\Templates</Filter>
+    </None>
+    <None Include="Data\Archetypes\Asteroid.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Meshes\MeshAsteroid.json">
+      <Filter>JSON Files\Data\Meshes</Filter>
+    </None>
+    <None Include="Data\Archetypes\AsteroidsScore.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Meshes\Mesh16x8.json">
+      <Filter>JSON Files\Data\Meshes</Filter>
+    </None>
+    <None Include="Data\Archetypes\AsteroidsHighScore.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\AsteroidsWaveCount.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\Arena.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\OmegaHighScore.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\OmegaScore.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\OmegaWaveCount.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Archetypes\SpaceshipOmega.json">
+      <Filter>JSON Files\Data\Archetypes</Filter>
+    </None>
+    <None Include="Data\Meshes\MeshArena.json">
+      <Filter>JSON Files\Data\Meshes</Filter>
+    </None>
+  </ItemGroup>
+</Project>

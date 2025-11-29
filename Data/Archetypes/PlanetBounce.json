@@ -1,0 +1,17 @@
+{
+  "Entity": {
+    "Name": "Planet",
+    "Components": {
+      "Transform": {
+        "Translation": [ 0.0, 300.0 ],
+        "Scale": [ 64.0, 64.0 ]
+      },
+      "Sprite": {
+      },
+      "Physics": {
+        "Acceleration": [ 0.0, -1500.0 ],
+        "Velocity": [ 150.0, 0.0 ]
+      }
+    }
+  }
+}

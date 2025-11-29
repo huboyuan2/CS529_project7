@@ -1,0 +1,25 @@
+{
+  "TileSet": {
+    "Name": "TestTileSet",
+    "TileWidth": 32,
+    "TileHeight": 32,
+    "Mesh": "MeshQuad",
+    "SpriteSources": [
+      {
+        "Name": "GrassTile"
+      },
+      {
+        "Name": "StoneTile"
+      },
+      {
+        "Name": "WaterTile"
+      },
+      {
+        "Name": "TreeTile"
+      },
+      {
+        "Name": "SandTile"
+      }
+    ]
+  }
+}

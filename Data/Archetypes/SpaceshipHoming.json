@@ -1,0 +1,18 @@
+{
+  "Entity": {
+    "Name": "SpaceshipHoming",
+    "Components": {
+      "Transform": {
+        "Translation": [ 0.0, 0.0 ],
+        "Rotation": 0.0,
+        "Scale": [ 100.0, 80.0 ]
+      },
+      "Sprite": {
+        "Alpha": 1.0
+      },
+      "Physics": {
+        "NoticeThereAreNoPhysicsPropertiesHere-DefaultValuesAreFine": 0
+      }
+    }
+  }
+}
