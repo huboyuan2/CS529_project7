@@ -102,7 +102,9 @@ namespace CS529
 
 		stream.Read("Rows", rows);
 		stream.Read("Cols", cols);
-
+		stream.Read("Scale", scale);
+		stream.Read("MapBaseX", mapBaseX);
+		stream.Read("MapBaseY", mapBaseY);
 		std::string tileSetName;
 		if (stream.Read("TileSet", tileSetName) && tileSetName != "")
 		{
@@ -141,6 +143,51 @@ namespace CS529
 		if (spriteSource == nullptr)
 			return true;
 		return spriteSource->IsPassable();*/
+	}
+	bool TileMapData::IsPassableAtWorldPos(float worldX, float worldY) const
+	{
+		float localX = worldX - mapBaseX;
+		float localY = worldY - mapBaseY;
+	
+		unsigned col = static_cast<unsigned>(localX / (GetTileSet()->GetTileWidth() * scale));
+		unsigned row = static_cast<unsigned>(localY / (GetTileSet()->GetTileHeight() * scale));
+
+		return IsPassable(row, col);
+	}
+
+	bool TileMapData::IsAreaPassable(float worldX, float worldY, float width, float height) const
+	{
+		float halfWidth = width * 0.5f;
+		float halfHeight = height * 0.5f;
+
+		// 注意：这里假设 Y 轴向下为正（常见的屏幕坐标系）
+
+		// 左上角
+		bool topLeft = IsPassableAtWorldPos(
+			worldX - halfWidth,  // 左边缘
+			worldY - halfHeight  // 上边缘
+		);
+
+		// 右上角
+		bool topRight = IsPassableAtWorldPos(
+			worldX + halfWidth,  // 右边缘
+			worldY - halfHeight  // 上边缘
+		);
+
+		// 左下角
+		bool bottomLeft = IsPassableAtWorldPos(
+			worldX - halfWidth,  // 左边缘
+			worldY + halfHeight  // 下边缘
+		);
+
+		// 右下角
+		bool bottomRight = IsPassableAtWorldPos(
+			worldX + halfWidth,  // 右边缘
+			worldY + halfHeight  // 下边缘
+		);
+
+		// 只有所有角点都可通行，区域才可通行
+		return topLeft && topRight && bottomLeft && bottomRight;
 	}
 
 	unsigned TileMapData::GetTileAt(unsigned row, unsigned col) const

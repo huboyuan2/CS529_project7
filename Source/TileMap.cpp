@@ -21,6 +21,7 @@
 #include "DGL.h"
 #include "Transform.h"
 #include "Stream.h"
+#include "LoggingSystem.h"
 //------------------------------------------------------------------------------
 // External Declarations:
 //------------------------------------------------------------------------------
@@ -83,11 +84,21 @@ namespace CS529
 			if (mapStream.IsValid())
 			{
 				loadedData->Read(mapStream);
+				/*Transform* transform =Parent()->Get<Transform>();
+				loadedData->SetBaseX(transform->Translation().x);
+				loadedData->SetBaseY(transform->Translation().y);*/
 				tileMapData = loadedData;
 			}
 		}
 
 		stream.PopNode();
+		/*Transform* transform = Parent()->Get<Transform>();
+		if (transform)
+		{
+			tileMapData->SetBaseX(transform->Translation().x);
+			tileMapData->SetBaseY(transform->Translation().y);
+		}*/
+		
 	}
 
 	void TileMap::Render() const
@@ -107,6 +118,10 @@ namespace CS529
 		DGL_Graphics_SetShaderMode(DGL_PSM_TEXTURE, DGL_VSM_DEFAULT);
 		Matrix2D baseMatrix = transform->GetMatrix();
 
+		// 获取 Tile 的实际尺寸（缩放后）
+		float tileWorldWidth = tileSet->GetTileWidth() / 32.0f;  // 转换为世界单位
+		float tileWorldHeight = tileSet->GetTileHeight() / 32.0f;
+
 		for (unsigned row = 0; row < tileMapData->GetRows(); ++row)
 		{
 			for (unsigned col = 0; col < tileMapData->GetCols(); ++col)
@@ -118,9 +133,16 @@ namespace CS529
 				const SpriteSource* spriteSource = tileSet->GetSpriteSource(tileIndex);
 				if (!spriteSource)
 					continue;
+
 				spriteSource->SetTextureOffset(0);
 				Matrix2D offset;
-				offset.Translate(col * tileSet->GetTileWidth()/32, row * tileSet->GetTileHeight()/32);
+
+				// 修正：加上半个 Tile 的偏移，使 Mesh 中心对齐 Tile 中心
+				offset.Translate(
+					(col + 0.5f) * tileWorldWidth,   // 加 0.5 使中心对齐
+					(row + 0.5f) * tileWorldHeight
+				);
+
 				Matrix2D tileMatrix = baseMatrix * offset;
 
 				spriteSource->UseTexture();
@@ -130,9 +152,15 @@ namespace CS529
 			}
 		}
 	}
-
+	bool TileMap::CheckCollisionAt(float worldX, float worldY, float width, float height)
+	{
+		bool canpass = tileMapData->IsAreaPassable(worldX, worldY, width, height);
+		if (!canpass)
+			LoggingSystem::Verbose("Cannot Pass");
+		return !canpass;
+	}
 #pragma endregion Public Functions
-
+	 
 	//--------------------------------------------------------------------------
 	// Private Functions:
 	//--------------------------------------------------------------------------

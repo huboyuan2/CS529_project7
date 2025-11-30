@@ -26,8 +26,8 @@ namespace CS529
     {
     private:
         //std::vector<unsigned> tileData;
-        const TileMapData* tileMapData;
-
+        //const TileMapData* tileMapData;
+        TileMapData* tileMapData;
     public:
         TileMap(void);
         TileMap(const TileMap* other);
@@ -36,7 +36,7 @@ namespace CS529
         void Update(float dt) override {}
         void Render() const override;
         void Read(Stream& stream) override;
-
+        bool CheckCollisionAt(float worldX, float worldY, float width = 10.0, float height = 15.0);
         unsigned GetTileAt(unsigned row, unsigned col) const;
         void SetTileAt(unsigned row, unsigned col, unsigned tileIndex);
 

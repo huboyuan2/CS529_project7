@@ -37,6 +37,9 @@
 #include "MeshLibrary.h"
 #include "SpriteSourceLibrary.h"
 #include "TileSetLibrary.h"
+#include "TileMap.h"
+#include "TileSet.h"
+#include "TileMapData.h"
 
 //------------------------------------------------------------------------------
 // External Declarations:
@@ -288,6 +291,17 @@ namespace CS529
 		Transform* transform = entityMonkey->Get<Transform>();
 		const Vector2D& position = transform->Translation();
 		Physics* physics = entityMonkey->Get<Physics>();
+
+		TileMap* tilemap = entityTileMap->Get<TileMap>();
+		/*bool iscollide = tilemap->CheckCollisionAt(transform->Translation().x+32, transform->Translation().y+32, 1, 1);*/
+		bool iscollide = tilemap->CheckCollisionAt(transform->Translation().x, transform->Translation().y, 30, 45);
+		if (iscollide) {
+			entityMonkey->Get<Sprite>()->Alpha(0.5f);
+		}
+		else
+		{
+			entityMonkey->Get<Sprite>()->Alpha(1.0f);
+		}
 
 		const Vector2D& velocity = physics->Velocity();
 		if (DGL_Input_KeyDown(VK_LEFT))

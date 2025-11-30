@@ -35,15 +35,23 @@ namespace CS529
         unsigned GetTileAt(unsigned row, unsigned col) const;
         void SetTileAt(unsigned row, unsigned col, unsigned tileIndex);
 
+        //void SetBaseX(float worldx) { mapBaseX = worldx; }
+        //void SetBaseY(float worldy) { mapBaseY = worldy; }
         unsigned GetRows() const { return rows; }
         unsigned GetCols() const { return cols; }
+        unsigned GetBaseX() const { return mapBaseX; }
+        unsigned GetBaseY() const { return mapBaseY; }
 		bool IsPassable(unsigned row, unsigned col) const;
         const TileSet* GetTileSet() const { return tileSet; }
         bool IsPassableAtWorldPos(float worldX, float worldY) const;
+        bool IsAreaPassable(float worldX, float worldY, float width, float height) const;
     private:
         std::string name;                     
         unsigned rows;
         unsigned cols;
+        unsigned scale;
+        float mapBaseX;
+        float mapBaseY;
         std::vector<unsigned> tileData;
         const TileSet* tileSet;
     };
