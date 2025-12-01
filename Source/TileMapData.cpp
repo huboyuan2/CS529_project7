@@ -155,41 +155,49 @@ namespace CS529
 		return IsPassable(row, col);
 	}
 
-	bool TileMapData::IsAreaPassable(float worldX, float worldY, float width, float height) const
+	int TileMapData::IsAreaPassable(float worldX, float worldY, float width, float height) const
 	{
 		float halfWidth = width * 0.5f;
 		float halfHeight = height * 0.5f;
 
-		// 注意：这里假设 Y 轴向下为正（常见的屏幕坐标系）
+		int collisionFlags = HP_NONE;
 
+		// 检测四个热点
 		// 左上角
-		bool topLeft = IsPassableAtWorldPos(
-			worldX - halfWidth,  // 左边缘
-			worldY - halfHeight  // 上边缘
-		);
+		if (!IsPassableAtWorldPos(worldX - halfWidth, worldY - halfHeight))
+		{
+			collisionFlags |= HP_TOP_LEFT;
+		}
 
 		// 右上角
-		bool topRight = IsPassableAtWorldPos(
-			worldX + halfWidth,  // 右边缘
-			worldY - halfHeight  // 上边缘
-		);
+		if (!IsPassableAtWorldPos(worldX + halfWidth, worldY - halfHeight))
+		{
+			collisionFlags |= HP_TOP_RIGHT;
+		}
 
 		// 左下角
-		bool bottomLeft = IsPassableAtWorldPos(
-			worldX - halfWidth,  // 左边缘
-			worldY + halfHeight  // 下边缘
-		);
+		if (!IsPassableAtWorldPos(worldX - halfWidth, worldY + halfHeight))
+		{
+			collisionFlags |= HP_BOTTOM_LEFT;
+		}
 
 		// 右下角
-		bool bottomRight = IsPassableAtWorldPos(
-			worldX + halfWidth,  // 右边缘
-			worldY + halfHeight  // 下边缘
-		);
+		if (!IsPassableAtWorldPos(worldX + halfWidth, worldY + halfHeight))
+		{
+			collisionFlags |= HP_BOTTOM_RIGHT;
+		}
 
-		// 只有所有角点都可通行，区域才可通行
-		return topLeft && topRight && bottomLeft && bottomRight;
+		return collisionFlags;
 	}
-
+	int TileMapData::GetCollisionCount(int flags)
+	{
+		int count = 0;
+		if (flags & HP_TOP_LEFT) ++count;
+		if (flags & HP_TOP_RIGHT) ++count;
+		if (flags & HP_BOTTOM_LEFT) ++count;
+		if (flags & HP_BOTTOM_RIGHT) ++count;
+		return count;
+	}
 	unsigned TileMapData::GetTileAt(unsigned row, unsigned col) const
 	{
 		if (row >= rows || col >= cols)

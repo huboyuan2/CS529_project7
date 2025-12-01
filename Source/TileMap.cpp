@@ -22,6 +22,7 @@
 #include "Transform.h"
 #include "Stream.h"
 #include "LoggingSystem.h"
+#include "Physics.h"
 //------------------------------------------------------------------------------
 // External Declarations:
 //------------------------------------------------------------------------------
@@ -137,9 +138,9 @@ namespace CS529
 				spriteSource->SetTextureOffset(0);
 				Matrix2D offset;
 
-				// 修正：加上半个 Tile 的偏移，使 Mesh 中心对齐 Tile 中心
+				// fix:add 0.5 tile offset for the mesh centering
 				offset.Translate(
-					(col + 0.5f) * tileWorldWidth,   // 加 0.5 使中心对齐
+					(col + 0.5f) * tileWorldWidth,   // add 0.5 tile offset for centering
 					(row + 0.5f) * tileWorldHeight
 				);
 
@@ -154,10 +155,113 @@ namespace CS529
 	}
 	bool TileMap::CheckCollisionAt(float worldX, float worldY, float width, float height)
 	{
-		bool canpass = tileMapData->IsAreaPassable(worldX, worldY, width, height);
-		if (!canpass)
-			LoggingSystem::Verbose("Cannot Pass");
-		return !canpass;
+		if (!tileMapData)
+			return false;
+
+		int collisionFlags = tileMapData->IsAreaPassable(worldX, worldY, width, height);
+
+		if (TileMapData::HasCollision(collisionFlags))
+		{
+			LoggingSystem::Verbose("Collision: {} hot points",
+				TileMapData::GetCollisionCount(collisionFlags));
+
+			if (collisionFlags & HP_TOP_LEFT)
+				LoggingSystem::Verbose("  - Top Left colliding");
+			if (collisionFlags & HP_TOP_RIGHT)
+				LoggingSystem::Verbose("  - Top Right colliding");
+			if (collisionFlags & HP_BOTTOM_LEFT)
+				LoggingSystem::Verbose("  - Bottom Left colliding");
+			if (collisionFlags & HP_BOTTOM_RIGHT)
+				LoggingSystem::Verbose("  - Bottom Right colliding");
+
+			return true;
+		}
+
+		return false;
+	}
+
+	int TileMap::CheckAndResolveCollision(Entity* entity, float width, float height)
+	{
+		if (!entity || !tileMapData)
+			return false;
+
+		Transform* transform = entity->Get<Transform>();
+		Physics* physics = entity->Get<Physics>();
+
+		if (!transform || !physics)
+			return false;
+
+		const Vector2D& oldPos = physics->OldTranslation();
+		const Vector2D& newPos = transform->Translation();
+
+		// 获取碰撞标志
+		int collisionFlags = tileMapData->IsAreaPassable(newPos.x, newPos.y, width, height);
+
+		if (TileMapData::HasCollision(collisionFlags))
+		{
+			// 执行碰撞响应
+			ResolveCollision(transform, physics, oldPos, newPos, width, height, collisionFlags);
+			//return true;
+		}
+		return collisionFlags;
+		//return false;
+	}
+	void TileMap::ResolveCollision(
+		Transform* transform,
+		Physics* physics,
+		const Vector2D& oldPos,
+		const Vector2D& newPos,
+		float width,
+		float height,
+		int collisionFlags
+	) const
+	{
+		Vector2D finalPos = newPos;
+		Vector2D velocity = physics->Velocity();
+
+		// 根据碰撞标志判断碰撞方向
+		bool xBlocked = false;
+		bool yBlocked = false;
+
+		// 左墙碰撞（左侧热点碰撞且向左移动）
+		if (TileMapData::IsTouchingLeftWall(collisionFlags) && velocity.x < 0.0f)
+		{
+			xBlocked = true;
+			finalPos.x = oldPos.x;
+			velocity.x = 0.0f;
+		}
+
+		// 右墙碰撞（右侧热点碰撞且向右移动）
+		if (TileMapData::IsTouchingRightWall(collisionFlags) && velocity.x > 0.0f)
+		{
+			xBlocked = true;
+			finalPos.x = oldPos.x;
+			velocity.x = 0.0f;
+		}
+
+		// 地面碰撞（底部热点碰撞且向下移动）
+		if (TileMapData::IsStanding(collisionFlags) && velocity.y > 0.0f)
+		{
+			yBlocked = true;
+			finalPos.y = oldPos.y;
+			velocity.y = 0.0f;
+
+			LoggingSystem::Verbose("Player is STANDING");
+		}
+
+		// 天花板碰撞（顶部热点碰撞且向上移动）
+		if (TileMapData::IsTouchingCeiling(collisionFlags) && velocity.y < 0.0f)
+		{
+			yBlocked = true;
+			finalPos.y = oldPos.y;
+			velocity.y = 0.0f;
+
+			LoggingSystem::Verbose("Player hit CEILING");
+		}
+
+		// 应用修正
+		transform->Translation(finalPos);
+		physics->Velocity(velocity);
 	}
 #pragma endregion Public Functions
 	 

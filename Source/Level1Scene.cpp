@@ -74,7 +74,7 @@ namespace CS529
 	//--------------------------------------------------------------------------
 	// Private Static Variables:
 	//--------------------------------------------------------------------------
-	const float Level1Scene::groundHeight = -150.0f;
+	const float Level1Scene::groundHeight = -250.0f;
 	const float Level1Scene::moveVelocity = 500.0f;
 	const float Level1Scene::jumpVelocity = 1000.0f;
 	const Vector2D Level1Scene::gravityNormal = { 0.0f, -1500.0f };
@@ -200,6 +200,35 @@ namespace CS529
 			MovementController();
 			//entityPlanet->Update(dt);
 			entityMonkey->Update(dt);
+
+			TileMap* tilemap = entityTileMap->Get<TileMap>();
+			if (tilemap)
+			{
+				// 使用新的碰撞响应方法
+				int collisionFlags = tilemap->CheckAndResolveCollision(entityMonkey, 30.0f, 45.0f);
+
+				// 视觉反馈（可选）
+				if (TileMapData::HasCollision(collisionFlags))
+				{
+					//entityMonkey->Get<Sprite>()->Alpha(0.5f);
+					//SetMonkeyState(entityMonkey, Idle); 
+					if (TileMapData::IsStanding(collisionFlags))
+					{
+						if (monkeyState == Jump)
+						SetMonkeyState(entityMonkey, Idle);
+					}
+					if (TileMapData::IsTouchingCeiling(collisionFlags))
+					{
+						if (monkeyState == Jump)
+						SetMonkeyState(entityMonkey, Idle);
+					}
+				}
+				/*else
+				{
+					entityMonkey->Get<Sprite>()->Alpha(1.0f);
+				}*/
+			}
+
 			BounceController(entityPlanet);
 			entityPlanet->Update(dt);
 			if (IsColliding(entityMonkey, entityPlanet))
@@ -218,24 +247,6 @@ namespace CS529
 			}
 			entityLives->Update(dt);
 		
-			
-		//if (DGL_Input_KeyTriggered('1'))
-		//{
-		//	Restart();
-		//}
-		//else if (DGL_Input_KeyTriggered('2'))
-		//{
-		//	SceneSystem::SetPendingScene<Level2Scene>();
-		//}
-		//else if (DGL_Input_KeyTriggered('9'))
-		//{
-		//	SceneSystem::SetPendingScene<SandboxScene>();
-		//}
-		//// Add code to restart the level when the ??key is triggered (when the key changes state from not pressed to pressed).
-		//if (DGL_Input_KeyTriggered('0'))
-		//{			
-		//	SceneSystem::SetPendingScene<DemoScene>();
-		//}
 	}
 
 	void Level1Scene::Render() const
@@ -294,14 +305,14 @@ namespace CS529
 
 		TileMap* tilemap = entityTileMap->Get<TileMap>();
 		/*bool iscollide = tilemap->CheckCollisionAt(transform->Translation().x+32, transform->Translation().y+32, 1, 1);*/
-		bool iscollide = tilemap->CheckCollisionAt(transform->Translation().x, transform->Translation().y, 30, 45);
+		/*bool iscollide = tilemap->CheckCollisionAt(transform->Translation().x, transform->Translation().y, 30, 30);
 		if (iscollide) {
 			entityMonkey->Get<Sprite>()->Alpha(0.5f);
 		}
 		else
 		{
 			entityMonkey->Get<Sprite>()->Alpha(1.0f);
-		}
+		}*/
 
 		const Vector2D& velocity = physics->Velocity();
 		if (DGL_Input_KeyDown(VK_LEFT))
