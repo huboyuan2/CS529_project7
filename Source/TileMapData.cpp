@@ -69,6 +69,9 @@ namespace CS529
 		: rows(0)
 		, cols(0)
 		, tileSet(nullptr)
+		, mapBaseX(0.0f)    // Initialize mapBaseX
+		, mapBaseY(0.0f)    // Initialize mapBaseY
+		, scale(1.0f)       // Initialize scale
 	{
 	}
 
@@ -162,27 +165,22 @@ namespace CS529
 
 		int collisionFlags = HP_NONE;
 
-		// 检测四个热点
-		// 左上角
-		if (!IsPassableAtWorldPos(worldX - halfWidth, worldY - halfHeight))
+		if (!IsPassableAtWorldPos(worldX - halfWidth, worldY + halfHeight))
 		{
 			collisionFlags |= HP_TOP_LEFT;
 		}
 
-		// 右上角
-		if (!IsPassableAtWorldPos(worldX + halfWidth, worldY - halfHeight))
+		if (!IsPassableAtWorldPos(worldX + halfWidth, worldY + halfHeight))
 		{
 			collisionFlags |= HP_TOP_RIGHT;
 		}
 
-		// 左下角
-		if (!IsPassableAtWorldPos(worldX - halfWidth, worldY + halfHeight))
+		if (!IsPassableAtWorldPos(worldX - halfWidth, worldY - halfHeight))
 		{
 			collisionFlags |= HP_BOTTOM_LEFT;
 		}
 
-		// 右下角
-		if (!IsPassableAtWorldPos(worldX + halfWidth, worldY + halfHeight))
+		if (!IsPassableAtWorldPos(worldX + halfWidth, worldY - halfHeight))
 		{
 			collisionFlags |= HP_BOTTOM_RIGHT;
 		}

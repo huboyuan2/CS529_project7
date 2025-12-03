@@ -3,7 +3,7 @@
     "Name": "Level1MapData",
     "Rows": 10,
     "Cols": 15,
-    "Scale": 2,
+    "Scale": 2.0,
     "MapBaseX": -482.0,
     "MapBaseY": -332.0,
     "TileSet": "TestTileSet",

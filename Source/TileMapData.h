@@ -46,8 +46,8 @@ namespace CS529
         //void SetBaseY(float worldy) { mapBaseY = worldy; }
         unsigned GetRows() const { return rows; }
         unsigned GetCols() const { return cols; }
-        unsigned GetBaseX() const { return mapBaseX; }
-        unsigned GetBaseY() const { return mapBaseY; }
+        float GetBaseX() const { return mapBaseX; }
+        float GetBaseY() const { return mapBaseY; }
 		bool IsPassable(unsigned row, unsigned col) const;
         const TileSet* GetTileSet() const { return tileSet; }
         bool IsPassableAtWorldPos(float worldX, float worldY) const;
@@ -56,27 +56,18 @@ namespace CS529
         static bool IsStanding(int flags) { return (flags & (HP_BOTTOM_LEFT | HP_BOTTOM_RIGHT)) != 0; }
         static bool IsTouchingCeiling(int flags) { return (flags & (HP_TOP_LEFT | HP_TOP_RIGHT)) != 0; }
         static bool IsTouchingLeftWall(int flags) {
-            // 只检测左上角，或左侧两个都碰撞
-            bool leftBottom = (flags & HP_TOP_LEFT) != 0;
-            bool leftTop = (flags & HP_BOTTOM_LEFT) != 0;
-
-            // 只有底部碰撞不算墙壁（这是站在地面上）
+            
+            bool leftTop = (flags & HP_TOP_LEFT) != 0;
+            bool leftBottom = (flags & HP_BOTTOM_LEFT) != 0;
             if (!leftTop && leftBottom)
                 return false;
-
-            // 其他情况：左上碰撞或两个都碰撞
             return leftTop;
         }
         static bool IsTouchingRightWall(int flags) {
-            // 只检测右上角，或右侧两个都碰撞
-            bool rightBottom = (flags & HP_TOP_RIGHT) != 0;
-            bool rightTop = (flags & HP_BOTTOM_RIGHT) != 0;
-
-            // 只有底部碰撞不算墙壁（这是站在地面上）
+            bool rightTop = (flags & HP_TOP_RIGHT) != 0;
+            bool rightBottom = (flags & HP_BOTTOM_RIGHT) != 0;
             if (!rightTop && rightBottom)
                 return false;
-
-            // 其他情况：右上碰撞或两个都碰撞
             return rightTop;
         }
         static int GetCollisionCount(int flags);
@@ -84,7 +75,7 @@ namespace CS529
         std::string name;                     
         unsigned rows;
         unsigned cols;
-        unsigned scale;
+        float scale;
         float mapBaseX;
         float mapBaseY;
         std::vector<unsigned> tileData;

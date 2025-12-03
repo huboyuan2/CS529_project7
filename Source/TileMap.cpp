@@ -41,6 +41,7 @@ namespace CS529
 
 	TileMap::TileMap(void)
 		: Component()
+		, tileMapData(nullptr)
 	{
 	}
 
@@ -223,7 +224,6 @@ namespace CS529
 		bool xBlocked = false;
 		bool yBlocked = false;
 
-		// 左墙碰撞（左侧热点碰撞且向左移动）
 		if (TileMapData::IsTouchingLeftWall(collisionFlags) && velocity.x < 0.0f)
 		{
 			xBlocked = true;
@@ -231,7 +231,6 @@ namespace CS529
 			velocity.x = 0.0f;
 		}
 
-		// 右墙碰撞（右侧热点碰撞且向右移动）
 		if (TileMapData::IsTouchingRightWall(collisionFlags) && velocity.x > 0.0f)
 		{
 			xBlocked = true;
@@ -239,8 +238,7 @@ namespace CS529
 			velocity.x = 0.0f;
 		}
 
-		// 地面碰撞（底部热点碰撞且向下移动）
-		if (TileMapData::IsStanding(collisionFlags) && velocity.y > 0.0f)
+		if (TileMapData::IsStanding(collisionFlags) && velocity.y < 0.0f)
 		{
 			yBlocked = true;
 			finalPos.y = oldPos.y;
@@ -249,8 +247,7 @@ namespace CS529
 			LoggingSystem::Verbose("Player is STANDING");
 		}
 
-		// 天花板碰撞（顶部热点碰撞且向上移动）
-		if (TileMapData::IsTouchingCeiling(collisionFlags) && velocity.y < 0.0f)
+		if (TileMapData::IsTouchingCeiling(collisionFlags) && velocity.y > 0.0f)
 		{
 			yBlocked = true;
 			finalPos.y = oldPos.y;

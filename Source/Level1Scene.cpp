@@ -210,7 +210,7 @@ namespace CS529
 				// 使用新的碰撞响应方法
 				int collisionFlags = tilemap->CheckAndResolveCollision(entityMonkey, 30.0f, 45.0f);
 
-				// 视觉反馈（可选）
+				
 				if (TileMapData::HasCollision(collisionFlags))
 				{
 					//entityMonkey->Get<Sprite>()->Alpha(0.5f);
