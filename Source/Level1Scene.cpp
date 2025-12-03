@@ -159,6 +159,9 @@ namespace CS529
 		{	
 			monkeyState = Invalid;
 			SetMonkeyState(entityMonkey, Idle);
+			Physics* physics = entityMonkey->Get<Physics>();
+
+			physics->Acceleration(gravityNormal);
 		}
 		entityLives = EntityFactory::Build("MonkeyLivesText");
 		if (entityLives)
@@ -223,10 +226,11 @@ namespace CS529
 						SetMonkeyState(entityMonkey, Idle);
 					}
 				}
-				/*else
+				else
 				{
-					entityMonkey->Get<Sprite>()->Alpha(1.0f);
-				}*/
+					
+					//entityMonkey->Get<Sprite>()->Alpha(1.0f);
+				}
 			}
 
 			BounceController(entityPlanet);
