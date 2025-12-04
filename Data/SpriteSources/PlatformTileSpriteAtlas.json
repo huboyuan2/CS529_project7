@@ -1,0 +1,8 @@
+{
+  "SpriteSource": {
+    "Name": "PlatformTile",
+    "NumCols": 8,
+    "NumRows": 8,
+    "Texture": "SprTiles.png"
+  }
+}

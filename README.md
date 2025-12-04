@@ -14,21 +14,23 @@ Your project submission must include a “README” file containing the followin
 
 #### **Necessary Features:**
 
-· Create a new component for displaying a tile map
+· Create a new component for displaying a tile map**(✓)**
 
-· Create a new class for storing the data associated with a tile map
+· Create a new class for storing the data associated with a tile map**(✓)**
 
-· Create a new class for storing the data associated with a tile set
+· Create a new class for storing the data associated with a tile set**(✓)**
 
-· Display a 2D tile map within a new or existing scene 
+· Display a 2D tile map within a new or existing scene **(✓)**
 
-#### **Additional Features:** 
+#### **Additional Features:** (Choose two is enough)
 
-Choose two is enough
+multiple layers of tile maps.**(✓)**
 
-multiple layers of tile maps.
+· Implement binary collision detection sufficient for basic platforming (E.g. floor and walls)**(✓)**
 
-binary collision detection
+· Implement binary collision detecting sufficient for intermediate platforming(E.g. ceilings, platforms, and/or slopes)**(Half✓)**
+
+(ceilings ok, platform implemented but corner collision is not precise enough, slope not yet implemented)
 
 ~~tile map rule system (choice which tile sprite to show according to the adjacent tile value)~~
 
@@ -63,6 +65,10 @@ Implement the binary collision detection logic.
 Implement the binary collision resolve logic.
 
 Add four hot points for the character. 
+
+Add sprite atlas offset logic and change tile map sprite texture.
+
+Add another tile map layer
 
 
 

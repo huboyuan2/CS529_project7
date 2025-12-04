@@ -1,0 +1,8 @@
+{
+  "SpriteSource": {
+    "Name": "IsometricTile",
+    "NumCols": 3,
+    "NumRows": 4,
+    "Texture": "Isometric.png"
+  }
+}

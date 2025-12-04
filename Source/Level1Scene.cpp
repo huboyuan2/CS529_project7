@@ -149,6 +149,11 @@ namespace CS529
 	bool Level1Scene::Initialize()
 	{
 		entityPlanet = EntityFactory::Build("PlanetBounce");
+		entityBackGround = EntityFactory::Build("BackGround");
+		if(entityBackGround != nullptr)
+		{
+			AddEntity(entityBackGround);
+		}
 		entityTileMap = EntityFactory::Build("Level1Entity");
 		if(entityTileMap!=nullptr)
 		{
@@ -255,7 +260,9 @@ namespace CS529
 
 	void Level1Scene::Render() const
 	{
-		if (entityTileMap)
+		if(entityBackGround)
+			entityBackGround->Render();
+		if(entityTileMap)
 			entityTileMap->Render();
 		if(entityPlanet)
 			entityPlanet->Render();
@@ -275,6 +282,10 @@ namespace CS529
 		entityMonkey = nullptr;
 		delete entityLives;
 		entityLives = nullptr;
+		delete entityTileMap;
+		entityTileMap = nullptr;
+		delete entityBackGround;
+		entityBackGround = nullptr;
 		//DGL_Graphics_FreeMesh(const_cast<DGL_Mesh*>(mesh1x1->GetMeshResource()));
 	}
 
@@ -307,7 +318,7 @@ namespace CS529
 		const Vector2D& position = transform->Translation();
 		Physics* physics = entityMonkey->Get<Physics>();
 
-		TileMap* tilemap = entityTileMap->Get<TileMap>();
+		//TileMap* tilemap = entityTileMap->Get<TileMap>();
 		/*bool iscollide = tilemap->CheckCollisionAt(transform->Translation().x+32, transform->Translation().y+32, 1, 1);*/
 		/*bool iscollide = tilemap->CheckCollisionAt(transform->Translation().x, transform->Translation().y, 30, 30);
 		if (iscollide) {

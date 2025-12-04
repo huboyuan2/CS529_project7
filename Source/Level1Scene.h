@@ -113,6 +113,7 @@ namespace CS529
 	private:
 		int numLives = 0;
 		Entity* entityPlanet = nullptr;
+		Entity* entityBackGround = nullptr;
 		Entity* entityTileMap = nullptr;
 		Mesh* mesh1x1 = nullptr;
 		SpriteSource* spriteSourcePlanet = nullptr;

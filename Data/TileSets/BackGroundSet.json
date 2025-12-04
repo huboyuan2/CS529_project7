@@ -1,0 +1,31 @@
+{
+  "TileSet": {
+    "Name": "BackGroundSet",
+    "TileWidth": 32,
+    "TileHeight": 32,
+    "UseSpriteAtlas": false,
+    "SpriteAtlasColumns": 1,
+    "SpriteAtlasRows": 1,
+    "Mesh": "MeshQuad",
+    "SpriteSources": [
+      {
+        "Name": "PlatformTileSpriteAtlas"
+      },
+      {
+        "Name": "GrassTile"
+      },
+      {
+        "Name": "StoneTile"
+      },
+      {
+        "Name": "WaterTile"
+      },
+      {
+        "Name": "TreeTile"
+      },
+      {
+        "Name": "SandTile"
+      }
+    ]
+  }
+}
