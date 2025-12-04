@@ -24,10 +24,10 @@ namespace CS529
     enum HotPointFlags
     {
         HP_NONE = 0,              // 0000
-        HP_BOTTOM_LEFT = 1 << 0,  // 0001 - 脚部左侧（Y 小）
-        HP_BOTTOM_RIGHT = 1 << 1, // 0010 - 脚部右侧（Y 小）
-        HP_TOP_LEFT = 1 << 2,     // 0100 - 头部左侧（Y 大）
-        HP_TOP_RIGHT = 1 << 3     // 1000 - 头部右侧（Y 大）
+        HP_BOTTOM_LEFT = 1 << 0,  // 0001
+        HP_BOTTOM_RIGHT = 1 << 1, // 0010
+        HP_TOP_LEFT = 1 << 2,     // 0100
+        HP_TOP_RIGHT = 1 << 3     // 1000
     };
     class TileMapData
     {

@@ -3,8 +3,14 @@
     "Name": "TestTileSet",
     "TileWidth": 32,
     "TileHeight": 32,
+    "UseSpriteAtlas": true,
+    "SpriteAtlasColumns": 8,
+    "SpriteAtlasRows": 8,
     "Mesh": "MeshQuad",
     "SpriteSources": [
+      {
+        "Name": "PlatformTileSpriteAtlas"
+      },
       {
         "Name": "GrassTile"
       },

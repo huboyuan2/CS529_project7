@@ -38,6 +38,7 @@ namespace CS529
 		const int GetSpriteSourceCount() const { return static_cast<int>(spriteSources.size()); }
         unsigned GetTileWidth() const { return tileWidth; }
         unsigned GetTileHeight() const { return tileHeight; }
+        bool IsUsingAtlas() const { return useSpriteAtlas; }
         const std::string& GetName() const { return name; }
 
     private:
@@ -46,5 +47,10 @@ namespace CS529
         const Mesh* mesh;
         unsigned tileWidth;
         unsigned tileHeight;
+		bool useSpriteAtlas;
+		unsigned spriteAtlasColumns;
+		unsigned spriteAtlasRows;
+        //unsigned spriteAtlasColumns;
+        //unsigned spriteAtlasRows;
     };
 }

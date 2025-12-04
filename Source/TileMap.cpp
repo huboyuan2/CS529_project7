@@ -120,8 +120,7 @@ namespace CS529
 		DGL_Graphics_SetShaderMode(DGL_PSM_TEXTURE, DGL_VSM_DEFAULT);
 		Matrix2D baseMatrix = transform->GetMatrix();
 
-		// 获取 Tile 的实际尺寸（缩放后）
-		float tileWorldWidth = tileSet->GetTileWidth() / 32.0f;  // 转换为世界单位
+		float tileWorldWidth = tileSet->GetTileWidth() / 32.0f;  //convert to world units
 		float tileWorldHeight = tileSet->GetTileHeight() / 32.0f;
 
 		for (unsigned row = 0; row < tileMapData->GetRows(); ++row)
@@ -132,11 +131,16 @@ namespace CS529
 				if (tileIndex == 0)
 					continue;
 
-				const SpriteSource* spriteSource = tileSet->GetSpriteSource(tileIndex);
+				const SpriteSource* spriteSource;
+				if (tileSet->IsUsingAtlas())
+					spriteSource = tileSet->GetSpriteSource(1);
+				else spriteSource = tileSet->GetSpriteSource(tileIndex);
 				if (!spriteSource)
 					continue;
 
-				spriteSource->SetTextureOffset(0);
+				if(tileSet->IsUsingAtlas())
+					spriteSource->SetTextureOffset(tileIndex-1);
+				else spriteSource->SetTextureOffset(0);
 				Matrix2D offset;
 
 				// fix:add 0.5 tile offset for the mesh centering
@@ -195,12 +199,11 @@ namespace CS529
 		const Vector2D& oldPos = physics->OldTranslation();
 		const Vector2D& newPos = transform->Translation();
 
-		// 获取碰撞标志
 		int collisionFlags = tileMapData->IsAreaPassable(newPos.x, newPos.y, width, height);
 
 		if (TileMapData::HasCollision(collisionFlags))
 		{
-			// 执行碰撞响应
+			
 			ResolveCollision(transform, physics, oldPos, newPos, width, height, collisionFlags);
 			//return true;
 		}
@@ -220,27 +223,26 @@ namespace CS529
 		Vector2D finalPos = newPos;
 		Vector2D velocity = physics->Velocity();
 
-		// 根据碰撞标志判断碰撞方向
-		bool xBlocked = false;
-		bool yBlocked = false;
+		//bool xBlocked = false;
+		//bool yBlocked = false;
 
 		if (TileMapData::IsTouchingLeftWall(collisionFlags) && velocity.x < 0.0f)
 		{
-			xBlocked = true;
+			//xBlocked = true;
 			finalPos.x = oldPos.x;
 			velocity.x = 0.0f;
 		}
 
 		if (TileMapData::IsTouchingRightWall(collisionFlags) && velocity.x > 0.0f)
 		{
-			xBlocked = true;
+			//xBlocked = true;
 			finalPos.x = oldPos.x;
 			velocity.x = 0.0f;
 		}
 
 		if (TileMapData::IsStanding(collisionFlags) && velocity.y < 0.0f)
 		{
-			yBlocked = true;
+			//yBlocked = true;
 			finalPos.y = oldPos.y;
 			velocity.y = 0.0f;
 
@@ -249,14 +251,14 @@ namespace CS529
 
 		if (TileMapData::IsTouchingCeiling(collisionFlags) && velocity.y > 0.0f)
 		{
-			yBlocked = true;
+			//yBlocked = true;
 			finalPos.y = oldPos.y;
 			velocity.y = 0.0f;
 
 			LoggingSystem::Verbose("Player hit CEILING");
 		}
 
-		// 应用修正
+		//apply the fixed final position and velocity
 		transform->Translation(finalPos);
 		physics->Velocity(velocity);
 	}

@@ -3,7 +3,7 @@
     "Name": "Level1Map",
     "Components": {
       "Transform": {
-        "Translation": [-482.0, -332.0],
+        "Translation": [-514.0, -380.0],
         "Scale": [64.0, 64.0],
         "Rotation": 0.0
       },

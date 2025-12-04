@@ -74,7 +74,7 @@ namespace CS529
 	//--------------------------------------------------------------------------
 	// Private Static Variables:
 	//--------------------------------------------------------------------------
-	const float Level1Scene::groundHeight = -250.0f;
+	const float Level1Scene::groundHeight = -300.0f;
 	const float Level1Scene::moveVelocity = 500.0f;
 	const float Level1Scene::jumpVelocity = 1000.0f;
 	const Vector2D Level1Scene::gravityNormal = { 0.0f, -1500.0f };

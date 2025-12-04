@@ -103,13 +103,11 @@ namespace CS529
 
 		stream.Read("TileWidth", tileWidth);
 		stream.Read("TileHeight", tileHeight);
-
+		stream.Read("UseSpriteAtlas", useSpriteAtlas);
+		stream.Read("SpriteAtlasColumns", spriteAtlasColumns);
+		stream.Read("SpriteAtlasRows", spriteAtlasRows);
 		std::string meshName;
-		if (stream.Read("Mesh", meshName) && meshName != "")
-		{
-			//mesh = MeshLibrary::Build(meshName);
-			mesh = MeshLibrary::BuildQuad(1,1);
-		}
+	
 
 		// read multiple SpriteSources
 		if (stream.Contains("SpriteSources"))
@@ -128,7 +126,15 @@ namespace CS529
 				}
 				});
 		}
-
+		if (stream.Read("Mesh", meshName) && meshName != "")
+		{
+			if (useSpriteAtlas)
+			{
+				mesh = MeshLibrary::BuildQuad(spriteAtlasColumns, spriteAtlasRows);
+			}
+			else
+				mesh = MeshLibrary::BuildQuad(1,1);
+		}
 		stream.PopNode();
 	}
 
